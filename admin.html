@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Painel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header admin-header">
+    <div class="container header-inner">
+      <div class="logo">Painel Admin</div>
+      <nav>
+        <button id="btn-logout" class="btn">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section id="login-section" class="card">
+      <h2>Login Admin</h2>
+      <form id="login-form">
+        <label>Email
+          <input type="email" id="email" required />
+        </label>
+        <label>Senha
+          <input type="password" id="password" minlength="6" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <div id="login-msg" class="form-message"></div>
+      </form>
+    </section>
+
+    <section id="2fa-section" class="card hidden">
+      <h2>Verificação 2FA (TOTP)</h2>
+      <p>Abra seu app autenticador e insira o código</p>
+      <form id="2fa-form">
+        <label>Código TOTP
+          <input id="totp" required pattern="[0-9]{6}" />
+        </label>
+        <button class="btn btn-primary">Verificar</button>
+        <div id="2fa-msg" class="form-message"></div>
+      </form>
+    </section>
+
+    <section id="admin-panel" class="hidden">
+      <h2>Gerenciar Produtos</h2>
+
+      <div class="admin-actions">
+        <form id="product-form" class="card">
+          <input type="hidden" id="prod-id" />
+          <label>Título
+            <input id="prod-title" required />
+          </label>
+          <label>Imagem (URL)
+            <input id="prod-image" placeholder="URL da imagem ou deixe vazio para upload" />
+          </label>
+          <label>Link de redirecionamento
+            <input id="prod-link" required />
+          </label>
+          <label>Ou enviar arquivo
+            <input id="prod-file" type="file" accept="image/*" />
+          </label>
+          <div class="form-row">
+            <button id="save-prod" class="btn btn-primary">Salvar</button>
+            <button id="clear-prod" type="button" class="btn">Limpar</button>
+          </div>
+          <div id="prod-msg" class="form-message"></div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Lista de Produtos</h3>
+        <table id="prod-table" class="prod-table" aria-live="polite">
+          <thead>
+            <tr><th>Título</th><th>Imagem</th><th>Link</th><th>Ações</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Preview público</h3>
+        <div id="preview-grid" class="product-grid"></div>
+      </div>
+
+      <div class="card">
+        <h3>Log</h3>
+        <ul id="audit-log" class="log-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
