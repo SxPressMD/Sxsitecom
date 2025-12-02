@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo — Loja</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Minha Loja</div>
+      <nav>
+        <button id="btn-login" class="btn btn-primary">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Produtos da loja</h1>
+        <p>Vendas de produtos direto e fácil para você.</p>
+      </div>
+      <div class="hero-search">
+        <input id="search" placeholder="Buscar pelos Links" aria-label="Buscar produtos" />
+      </div>
+    </section>
+
+    <section id="product-grid" class="product-grid" aria-live="polite">
+      <!-- Cards via JS -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> Minha Loja</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
